@@ -63,4 +63,41 @@ app.post('/api/viewcard2' , (req , res) => {
 
 });
 
+app.post('/api/mypage' , (req , res) => {
+
+    console.log(req.body);
+    console.log(req.body['client_registration_number']);
+    const {cardIId,temp} = req.body
+
+    let sql = "SELECT * FROM banking.client where client_registration_number like '"+req.body['client_registration_number']+"'";
+    console.log(sql);
+
+    connection.query(
+        sql,params={},
+        (err,rows, fields) => {
+            res.send(rows);
+        }
+    )
+});
+
+app.post('/api/accountview' , (req , res) => {
+
+    console.log(req.body);
+    console.log(req.body['deposit_account_id']);
+    const {cardIId,temp} = req.body
+
+    let sql = "SELECT * FROM banking.deposit_account where deposit_account_id like '"+req.body['deposit_account_id']+"'";
+    console.log(sql);
+
+    connection.query(
+        sql,params={},
+        (err,rows, fields) => {
+            res.send(rows);
+        }
+    )
+});
+
+
+
+
 app.listen(port , () => console.log(`Listening on port ${port}`));

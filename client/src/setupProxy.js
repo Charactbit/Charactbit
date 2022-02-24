@@ -10,6 +10,10 @@ module.exports = function(app) {
         proxy('/api', {
             target: "http://localhost:5000", // 비즈니스 서버 URL 설정
             changeOrigin: true
+        }),
+        proxy('/pose', {
+            target: "http://localhost:5000", // 비즈니스 서버 URL 설정
+            changeOrigin: true
         })
     );
 };

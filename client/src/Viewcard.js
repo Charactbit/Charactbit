@@ -17,14 +17,9 @@ class Viewcard extends Component {
   viewCard = () => {
     const url = 'api/viewcard2';
     var body = { 'cardId' : `${this.state.card_id}`};
-    console.log(body);
-
-  
+    console.log(body);  
     return post(url ,body);
   }
-
-
-
 
   state = {
     card : "",
@@ -34,6 +29,7 @@ class Viewcard extends Component {
     card_type : "",
     client_registration_number2 :""
   }
+
 
   componentDidMount(){
     this.callApi()
